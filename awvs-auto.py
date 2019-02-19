@@ -152,7 +152,7 @@ def main():
     elif  choice =="6":
         return
     else:
-		print u"请重新运行并请输入1、2、3、4、5、6选择。"
+	print u"请重新运行并请输入1、2、3、4、5、6选择。"
 
 
 if __name__ == "__main__":
