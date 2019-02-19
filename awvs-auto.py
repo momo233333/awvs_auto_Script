@@ -30,8 +30,6 @@ with open("login.ini") as login:
     data_login = '{"email":"' + username + '","password":"' + pw + '","remember_me":false}'
     print data_login
     response_login = requests.post(url_login, data=data_login,headers=send_headers_login,verify=False)
-    # req_login = urllib2.Request(url_login,headers=send_headers_login)
-    # response_login = urllib2.urlopen(req_login,data_login)
     print response_login
     apikey = response_login.headers['X-Auth']
     COOOOOOOOkie = response_login.headers['Set-Cookie']
