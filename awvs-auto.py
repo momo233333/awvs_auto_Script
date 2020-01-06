@@ -1,4 +1,7 @@
 #-*- coding:utf-8 -*-
+#@Author: momo
+
+
 import requests
 import json
 import ssl
@@ -57,7 +60,7 @@ def add_scan():
             start_scan(target_id)
             print u"添加任务："+result['address']
         print u'添加任务完成！'
-#--------------------------------开始扫描任务----------------------------
+#-----------------------------开始扫描任务----------------------------
 def start_scan(target_id):
     scaned_url_lists = get_scan_list()
     if target_id in scaned_url_lists:
@@ -95,7 +98,7 @@ def down_report():
         with open("./reports/" + file_name + ".pdf",'wb') as report_file:
             print u'正在下载'+target_url
             report_file.write(req.content)
-#--------------------------删除杀扫描目标-------------------------
+#-----------------------------删除扫描目标-------------------------
 def del_target():
     response = requests.get(awvs_url+"/api/v1/targets",headers=headers,timeout=30,verify=False)
     target_list = json.loads(response.content)
@@ -108,7 +111,7 @@ def del_target():
         print del_url
         del_resp = requests.delete(del_url,headers=headers,verify=False)
     print u"删除完成!"
-#---------------------------删除扫描任务--------------------------------
+#------------------------------删除扫描任务--------------------------------
 def del_scan():
     response = requests.get(awvs_url+"/api/v1/scans",headers=headers,timeout=30,verify=False)
     scan_list = json.loads(response.content)
@@ -121,7 +124,7 @@ def del_scan():
         print del_url
         del_resp = requests.delete(del_url,headers=headers,verify=False)
     print u"删除完成！"
-#---------------------------删除报告-------------------------------------------
+#-----------------------------删除报告-------------------------------------------
 def del_report():
     response = requests.get(awvs_url+"/api/v1/reports", headers=headers, verify=False)
     result = json.loads(response.content)
